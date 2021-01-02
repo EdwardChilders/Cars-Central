@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cars Home Page</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <div id="container1">
+    <a href="/logout">Logout</a>
+    <h1>Welcome {{ user.first_name }}!</h1>
+    <h3 style="margin-top: 100px; margin-bottom: 25px;">You have stumbled upon the greatest website for cars!</h3>
+    <div id="links" style="margin-bottom: 50px;">
+    <a href="/cars" >List of cars for sale</a>
+    <!-- <a href="/parts">List of parts for sale</a>
+    <a href="/advice">Click here to go to our forum about cars and ask for advice</a> -->
+    </div>
+    <div id="messages">
+    {% for car in user.cars.all %}
+      {% for users in car.message.all %}
+        <p>{{ users.first_name }} {{ users.last_name }} is interested in your {{ car.year }} {{ car.make }} {{ car.model }}! You can email them at {{ users.email }}</p>
+      {% endfor %}
+    {% endfor %}
+    </div>
+  </div>
+</body>
+</html>

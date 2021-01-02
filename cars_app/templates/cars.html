@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cars for sale</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <div id="container1">
+    {% if messages %}
+      {% for message in messages %}
+        {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+      {% endfor %}
+
+    {% endif %}
+
+    <a href="/homepage">Return Home</a>
+    <a href="/logout">Logout</a>
+    <h1>Would you like to be able to post a car for sale?</h1>
+    <a href="/sell_car">Sell a Car</a>
+    <h2 style="margin-bottom: 50px;">Here is a list of cars for sale</h2>
+    <ul style="display: inline-block;">
+      {% for car in cars %}
+        <li style="display: inline-table; margin-bottom: 50px;">
+          <h3>{{ car.title }}</h3>
+          <p>Price: ${{ car.price }}</p>
+          <p>
+            {{ car.year }} {{ car.make }} {{ car.model }}
+          </p>
+          <img src="{{ car.img.url }}" alt="car" style="width: 500px">
+          <p>{{ car.desc }}</p>
+          <p>{{ car.mileage }} miles</p>
+          {% if car.salvage == True %}
+          <p>Salvaged</p>
+          {% else %}
+          <p>Clean Title</p>
+          {% endif %}
+        
+        {% if user == car.user_id %}
+          <a href="/edit_car/{{ car.id }}" style="margin-right: 5px;">Edit</a>
+          <a href="/destroy_car/{{ car.id }}">Delete</a>
+        {% else %}
+        {% if user not in car.message.all %}
+          <a href="/message_car_owner/{{ car.id }}">Interested? Send a message to the owner</a>
+        {% endif %}
+        {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>

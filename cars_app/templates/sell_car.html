@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell your Car</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div id="container1">
+      {% if messages %}
+      <ul class="messages">    
+      {% for message in messages %}    
+      <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <form action="/post_car" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>
+          <label for="title">Title:</label>
+          <input type="text" name="title" /><br>
+        </p>
+        <p>
+          <label for="desc">Description:</label>
+          <input type="text" name="desc" /><br>
+        </p>
+        <p>
+          <label for="make">Make:</label>
+          <input type="text" name="make" /><br>
+        </p>
+      <p>
+        <label for="model">Model:</label>
+        <input type="text" name="model" /><br>
+      </p>
+      <p>
+        <label for="year">Year:</label>
+        <input type="text" name="year" /><br>
+      </p>
+      <p>
+        <label for="mileage">Mileage:</label>
+        <input type="text" name="mileage" /><br>
+      </p>
+      <p>
+        <label for="price">Price:</label>
+        <input type="number" step="0.01" name="price" /><br>
+      </p>
+      <p>
+        <h4>Is this car salvaged?</h4>
+        <select name="salvage">
+          <option value="False">No</option>
+          <option value="True">Yes</option>
+        </select>
+      </p>
+      <p>
+        <label for="image">Image:</label>
+        <input type="file" name="image">
+      </p>
+      <button type='submit'>Submit</button>
+    </form>
+    <a href="/cars" style="vertical-align: top;">Go Back</a>
+  </div>
+</body>
+</html>

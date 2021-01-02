@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell your Car</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <div id="container1">
+    {% if messages %}
+    <ul class="messages">    
+      {% for message in messages %}    
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <form action="/update_car/{{ car.id }}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <p>
+        <label for="title">Title:</label>
+        <input type="text" name="title" value="{{ car.title }}" /><br>
+      </p>
+      <p>
+        <label for="desc">Description:</label>
+        <input type="text" name="desc" value="{{ car.desc }}" /><br>
+      </p>
+      <p>
+        <label for="make">Make:</label>
+        <input type="text" name="make" value="{{ car.make }}" /><br>
+      </p>
+      <p>
+        <label for="model">Model:</label>
+        <input type="text" name="model" value="{{ car.model }}" /><br>
+      </p>
+      <p>
+        <label for="year">Year:</label>
+        <input type="text" name="year" value="{{ car.year }}" /><br>
+      </p>
+      <p>
+        <label for="mileage">Mileage:</label>
+        <input type="text" name="mileage" value="{{ car.mileage }}" /><br>
+      </p>
+      <p>
+        <label for="price">Price:</label>
+        <input type="number" step="0.01" name="price" value="{{ car.price }}"/><br>
+      </p>
+      <p>
+        <h4>Is this car salvaged?</h4>
+        <select name="salvage">
+          <option value="{{ car.salvage }}"></option>
+          <option value="False">No</option>
+          <option value="True">Yes</option>
+        </select>
+      </p>
+      <button type='submit'>Update</button>
+    </form>
+    <a href="/cars">Go Back</a>
+  </div>
+</body>
+</html>
