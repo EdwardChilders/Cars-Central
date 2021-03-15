@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cars for sale</title>
   {% load static %}
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
 </head>
-<body>
+<body class="cars_page">
+  <a href="/homepage"><button>Return Home</button></a>
+  <a href="/logout"><button>Logout</button></a>
   <div id="container1">
     {% if messages %}
       {% for message in messages %}
@@ -17,10 +19,8 @@
 
     {% endif %}
 
-    <a href="/homepage">Return Home</a>
-    <a href="/logout">Logout</a>
     <h1>Would you like to be able to post a car for sale?</h1>
-    <a href="/sell_car">Sell a Car</a>
+    <a href="/sell_car"><button>Sell a Car</button></a>
     <h2 style="margin-bottom: 50px;">Here is a list of cars for sale</h2>
     <ul style="display: inline-block;">
       {% for car in cars %}

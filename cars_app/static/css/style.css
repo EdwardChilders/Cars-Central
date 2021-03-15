@@ -2,39 +2,12 @@
   padding: 0px;
   margin: 0px;
 }
-form{ 
-  display: table;  
-  display: inline-block;
-  border: 3px solid rgb(148, 0, 0);
-  border-radius: 5px;
-  min-width: 150px;
-  min-height: 100px;    
-  padding: 20px;
-}
-p{ 
-  display: table-row;  
-}
-label{ 
-  display: table-cell; 
-  padding: 10px;
-}
-input{ 
-  display: table-cell;
-  border: 2px solid rgb(148, 0, 0);
-  border-radius: 4px;
-  margin-bottom: 5px; 
-
-}
-textarea{
-  vertical-align: top;
-  display: table-cell;
-}
-
 #container1{
-  width: 1000px;
+  background:url('http://getwallpapers.com/wallpaper/full/a/0/e/954542-full-size-supercar-wallpaper-hd-2560x1440-for-xiaomi.jpg');
   margin: 0px auto;
   text-align: center;
-  background-color: rgb(172, 171, 171);
+  font-family: 'Ubuntu', sans-serif;
+  background-size: auto;
 }
 
 #container{
