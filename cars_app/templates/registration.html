@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New User</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/reg.css' %}">
+  </head>
+  <body>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+
+    <div class="reg">
+      <div class="reg-header">
+        <h1>Register</h1>
+      </div>
+      {% if messages %}
+            <ul class="messages">    
+              {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+              {% endfor %}
+            </ul>
+          {% endif %}
+      <div class="reg-form">
+        <form action="/register" method="POST">
+          {% csrf_token %}
+          <h3>First Name:</h3>
+          <input type="text" name="first_name" placeholder="First Name"/><br>
+          <h3>Last Name:</h3>
+          <input type="text" name="last_name" placeholder="Last Name"/><br>
+          <h3>Email:</h3>
+          <input type="text" name="email" placeholder="Email"/><br>
+          <h3>Password:</h3>
+          <input type="password" name="password" placeholder="Password"/>
+          <br>
+          <h3>Confirm Password:</h3>
+          <input type="password" name="confirm_password" placeholder="Confirm Password"/>
+          <br>
+          <input type="submit" value="Register" class="reg-button"/>
+          <br>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

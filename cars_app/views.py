@@ -9,8 +9,10 @@ from django.core.files.storage import FileSystemStorage
 # renders
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'login.html')
 
+def new_user(request):
+    return render(request, 'registration.html')
 
 def homepage(request):
     if 'uuid' not in request.session:
