@@ -4,7 +4,7 @@
 }
 
 body {
-  background:url('https://digitalsynopsis.com/wp-content/uploads/2014/06/supercar-wallpapers-lamborghini-4.jpg');
+  background:url('https://wallpaper.dog/large/11048237.jpg');
   margin:0px;
   font-family: 'Ubuntu', sans-serif;
   background-repeat: no-repeat;
@@ -15,11 +15,11 @@ body {
 /* h1, h2, h3, h4, h5, h6, a {
   margin:0; padding:0;
 } */
-.reg {
+.sell {
   margin:0px auto;
   max-width:500px;
 }
-.reg-header {
+.sell-header {
   color:#fff;
   text-align:center;
   font-size:300%;
@@ -30,26 +30,29 @@ body {
   } 
 */
 
-.reg-form {
+.sell-form {
   border:.5px solid #fff;
   background:#4facff;
   border-radius:10px;
   box-shadow:0px 0px 10px #000;
 }
-.reg-form h3 {
+.sell-form h3 {
   text-align:left;
   margin-left:40px;
   color:#fff;
 }
-.reg-form {
+.sell-form {
   box-sizing:border-box;
   padding-top:15px;
 	padding-bottom:10%;
   margin:5% auto;
   text-align:center;
 }
-.reg input[type="text"],
-.reg input[type="password"] {
+.sell input[type="text"],
+.sell input[type="password"],
+.sell input[type="number"],
+.sell input[type="file"],
+.sell select {
   max-width:400px;
 	width: 80%;
   line-height:3em;
@@ -60,7 +63,7 @@ body {
   outline:none;
   padding-left:10px;
 }
-.reg-form input[type="submit"] {
+.sell-form input[type="submit"] {
   height:30px;
   width:100px;
   background:#fff;
@@ -81,14 +84,14 @@ body {
 
 /*Media Querie*/
 @media only screen and (min-width : 150px) and (max-width : 530px){
-  .reg-form h3 {
+  .sell-form h3 {
     text-align:center;
     margin:0;
   }
   .sign-up, .no-access {
     margin:10px 0;
   }
-  .reg-button {
+  .sell-button {
     margin-bottom:10px;
   }
 }
